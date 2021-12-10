@@ -25,6 +25,14 @@ class Poet < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :senders,
+             :through => :received_friend_requests,
+             :source => :sender
+
+  has_many   :recipients,
+             :through => :sent_friend_requests,
+             :source => :recipient
+
   # Validations
 
   # Scopes

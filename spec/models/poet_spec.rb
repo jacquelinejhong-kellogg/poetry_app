@@ -18,6 +18,10 @@ RSpec.describe Poet, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:senders) }
+
+    it { should have_many(:recipients) }
+
     end
 
     describe "Validations" do
