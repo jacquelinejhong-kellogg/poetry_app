@@ -12,6 +12,10 @@ class Poem < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :supporters,
+             :through => :likes,
+             :source => :poet
+
   # Validations
 
   # Scopes

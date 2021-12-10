@@ -14,6 +14,8 @@ RSpec.describe Poem, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:supporters) }
+
     end
 
     describe "Validations" do

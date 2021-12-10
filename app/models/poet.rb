@@ -25,6 +25,10 @@ class Poet < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :liked_poems,
+             :through => :likes,
+             :source => :poem
+
   has_many   :senders,
              :through => :received_friend_requests,
              :source => :sender
