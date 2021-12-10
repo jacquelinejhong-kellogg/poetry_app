@@ -68,7 +68,7 @@
 
     <%= f.label :poem_id %>
     <!-- Input for poem_id start -->
-    <%= f.number_field :poem_id, class: poem_class, placeholder: "Enter poem" %>
+    <%= f.collection_select :poem_id, Poem.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for poem_id end -->
     <% if poem_was_invalid %>
       <% comment.errors.full_messages_for(:poem).each do |message| %>
