@@ -1,4 +1,6 @@
 class Poet < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   # Direct associations
 
   has_many   :received_friend_requests,
