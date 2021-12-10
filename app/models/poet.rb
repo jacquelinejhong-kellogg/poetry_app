@@ -1,6 +1,10 @@
 class Poet < ApplicationRecord
   # Direct associations
 
+  has_many   :likes,
+             :foreign_key => "liker_id",
+             :dependent => :destroy
+
   has_many   :comments,
              :foreign_key => "commenter_id",
              :dependent => :destroy
