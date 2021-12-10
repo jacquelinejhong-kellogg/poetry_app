@@ -30,4 +30,32 @@ class PoetResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :senders, resource: PoetResource do
+    assign_each do |poet, poets|
+      poets.select do |p|
+        p.id.in?(poet.senders.map(&:id))
+      end
+    end
+  end
+
+  has_many :recipients, resource: PoetResource do
+    assign_each do |poet, poets|
+      poets.select do |p|
+        p.id.in?(poet.recipients.map(&:id))
+      end
+    end
+  end
+
+
+  filter :sender_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:senders).where(:friend_requests => {:sender_id => value})
+    end
+  end
+
+  filter :recipient_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:recipients).where(:friend_requests => {:recipient_id => value})
+    end
+  end
 end
