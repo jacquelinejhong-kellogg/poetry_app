@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   # Direct associations
 
   belongs_to :commenter,
-             :class_name => "Poet"
+             class_name: "Poet"
 
   belongs_to :poem
 
@@ -15,5 +15,4 @@ class Comment < ApplicationRecord
   def to_s
     body
   end
-
 end

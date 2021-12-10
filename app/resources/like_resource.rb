@@ -13,5 +13,4 @@ class LikeResource < ApplicationResource
   belongs_to :poem
 
   # Indirect associations
-
 end

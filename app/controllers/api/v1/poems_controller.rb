@@ -13,7 +13,7 @@ class Api::V1::PoemsController < Api::V1::GraphitiController
     poem = PoemResource.build(params)
 
     if poem.save
-      render jsonapi: poem, status: 201
+      render jsonapi: poem, status: :created
     else
       render jsonapi_errors: poem
     end
@@ -33,7 +33,7 @@ class Api::V1::PoemsController < Api::V1::GraphitiController
     poem = PoemResource.find(params)
 
     if poem.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: poem
     end

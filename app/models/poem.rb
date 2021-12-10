@@ -2,19 +2,19 @@ class Poem < ApplicationRecord
   # Direct associations
 
   belongs_to :author,
-             :class_name => "Poet"
+             class_name: "Poet"
 
   has_many   :likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :supporters,
-             :through => :likes,
-             :source => :poet
+             through: :likes,
+             source: :poet
 
   # Validations
 
@@ -23,5 +23,4 @@ class Poem < ApplicationRecord
   def to_s
     title
   end
-
 end

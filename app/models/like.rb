@@ -2,7 +2,7 @@ class Like < ApplicationRecord
   # Direct associations
 
   belongs_to :poet,
-             :foreign_key => "liker_id"
+             foreign_key: "liker_id"
 
   belongs_to :poem
 
@@ -15,5 +15,4 @@ class Like < ApplicationRecord
   def to_s
     poem.to_s
   end
-
 end

@@ -21,5 +21,4 @@ class PoemResource < ApplicationResource
 
   many_to_many :supporters,
                resource: PoetResource
-
 end
