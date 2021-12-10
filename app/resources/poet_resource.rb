@@ -30,6 +30,9 @@ class PoetResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :liked_poems,
+               resource: PoemResource
+
   has_many :senders, resource: PoetResource do
     assign_each do |poet, poets|
       poets.select do |p|

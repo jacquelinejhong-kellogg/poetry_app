@@ -19,4 +19,7 @@ class PoemResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :supporters,
+               resource: PoetResource
+
 end
