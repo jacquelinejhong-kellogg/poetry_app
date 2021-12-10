@@ -1,5 +1,7 @@
 ActiveAdmin.register Poem do
 
+ permit_params :title, :body, :author_id, :date, :commentary
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
