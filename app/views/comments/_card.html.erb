@@ -12,12 +12,20 @@
 
       <dt>Commenter</dt>
       <!-- Display commenter_id start -->
-      <dd><%= comment.commenter_id %></dd>
+      <dd>
+        <% if @comment.commenter.present? %>
+          <%= link_to comment.commenter, comment.commenter %>
+        <% end %>
+      </dd>
       <!-- Display commenter_id end -->
 
       <dt>Poem</dt>
       <!-- Display poem_id start -->
-      <dd><%= comment.poem_id %></dd>
+      <dd>
+        <% if @comment.poem.present? %>
+          <%= link_to comment.poem, comment.poem %>
+        <% end %>
+      </dd>
       <!-- Display poem_id end -->
 
     </dl>
