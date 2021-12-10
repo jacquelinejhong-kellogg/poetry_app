@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @poet.sent_friend_requests.each do |friend_request| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to friend_request, friend_request %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to friend_request, method: :delete, data: { confirm: "Do you really want to delete this friend_request" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="poet_sent_friend_requests_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "poets/poet_sent_friend_requests_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

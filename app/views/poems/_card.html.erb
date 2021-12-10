@@ -6,33 +6,23 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Title</dt>
-      <!-- Display title start -->
       <dd><%= poem.title %></dd>
-      <!-- Display title end -->
 
       <dt>Body</dt>
-      <!-- Display body start -->
       <dd><%= poem.body %></dd>
-      <!-- Display body end -->
 
       <dt>Author</dt>
-      <!-- Display author_id start -->
       <dd>
         <% if @poem.author.present? %>
           <%= link_to poem.author, poem.author %>
         <% end %>
       </dd>
-      <!-- Display author_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= poem.date %></dd>
-      <!-- Display date end -->
 
       <dt>Commentary</dt>
-      <!-- Display commentary start -->
       <dd><%= poem.commentary %></dd>
-      <!-- Display commentary end -->
 
     </dl>
 
@@ -41,21 +31,17 @@
         <%= link_to_show_or_back poem, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link poem start -->
       <div class="col">
         <%= link_to edit_poem_url(poem), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link poem end -->
 
-      <!-- Delete link poem start -->
       <div class="col">
         <%= link_to poem, method: :delete, data: { confirm: "Do you really want to delete this poem?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link poem end -->
     </div>
   </div>
 

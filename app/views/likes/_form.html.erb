@@ -1,7 +1,6 @@
 <% was_validated = like.errors.any? %>
 
 <%= form_with(model: like, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for poem_id start -->
   <div class="form-group">
     <% poem_class = "form-control" %>
     <% poem_was_invalid = like.errors.include?(:poem) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :poem_id %>
-    <!-- Input for poem_id start -->
     <%= f.collection_select :poem_id, Poem.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for poem_id end -->
     <% if poem_was_invalid %>
       <% like.errors.full_messages_for(:poem).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for poem_id end -->
-  <!-- Label and input for liker_id start -->
   <div class="form-group">
     <% liker_class = "form-control" %>
     <% liker_was_invalid = like.errors.include?(:liker) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :liker_id %>
-    <!-- Input for liker_id start -->
     <%= f.collection_select :liker_id, Poet.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for liker_id end -->
     <% if liker_was_invalid %>
       <% like.errors.full_messages_for(:liker).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for liker_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

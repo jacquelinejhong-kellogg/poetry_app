@@ -1,7 +1,6 @@
 <% was_validated = poem.errors.any? %>
 
 <%= form_with(model: poem, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for title start -->
   <div class="form-group">
     <% title_class = "form-control" %>
     <% title_was_invalid = poem.errors.include?(:title) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :title %>
-    <!-- Input for title start -->
     <%= f.text_field :title, class: title_class, placeholder: "Enter title" %>
-    <!-- Input for title end -->
     <% if title_was_invalid %>
       <% poem.errors.full_messages_for(:title).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for title end -->
-  <!-- Label and input for body start -->
   <div class="form-group">
     <% body_class = "form-control" %>
     <% body_was_invalid = poem.errors.include?(:body) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :body %>
-    <!-- Input for body start -->
     <%= f.text_field :body, class: body_class, placeholder: "Enter body" %>
-    <!-- Input for body end -->
     <% if body_was_invalid %>
       <% poem.errors.full_messages_for(:body).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for body end -->
-  <!-- Label and input for author_id start -->
   <div class="form-group">
     <% author_class = "form-control" %>
     <% author_was_invalid = poem.errors.include?(:author) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :author_id %>
-    <!-- Input for author_id start -->
     <%= f.collection_select :author_id, Poet.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for author_id end -->
     <% if author_was_invalid %>
       <% poem.errors.full_messages_for(:author).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for author_id end -->
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = poem.errors.include?(:date) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.datetime_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% poem.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for commentary start -->
   <div class="form-group">
     <% commentary_class = "form-control" %>
     <% commentary_was_invalid = poem.errors.include?(:commentary) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :commentary %>
-    <!-- Input for commentary start -->
     <%= f.text_field :commentary, class: commentary_class, placeholder: "Enter commentary" %>
-    <!-- Input for commentary end -->
     <% if commentary_was_invalid %>
       <% poem.errors.full_messages_for(:commentary).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for commentary end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

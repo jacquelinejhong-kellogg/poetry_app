@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Poem</dt>
-      <!-- Display poem_id start -->
       <dd>
         <% if @like.poem.present? %>
           <%= link_to like.poem, like.poem %>
         <% end %>
       </dd>
-      <!-- Display poem_id end -->
 
       <dt>Liker</dt>
-      <!-- Display liker_id start -->
       <dd>
         <% if @like.poet.present? %>
           <%= link_to like.poet, like.poet %>
         <% end %>
       </dd>
-      <!-- Display liker_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back like, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link like start -->
       <div class="col">
         <%= link_to edit_like_url(like), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link like end -->
 
-      <!-- Delete link like start -->
       <div class="col">
         <%= link_to like, method: :delete, data: { confirm: "Do you really want to delete this like?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link like end -->
     </div>
   </div>
 
