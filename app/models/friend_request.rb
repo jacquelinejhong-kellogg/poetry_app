@@ -1,6 +1,9 @@
 class FriendRequest < ApplicationRecord
   # Direct associations
 
+  belongs_to :sender,
+             :class_name => "Poet"
+
   # Indirect associations
 
   # Validations
