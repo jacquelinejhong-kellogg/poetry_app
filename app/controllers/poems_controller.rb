@@ -3,7 +3,7 @@ class PoemsController < ApplicationController
 
   # GET /poems
   def index
-    @poems = Poem.all
+    @poems = Poem.page(params[:page]).per(10)
   end
 
   # GET /poems/1
