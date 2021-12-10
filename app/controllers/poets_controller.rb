@@ -1,14 +1,12 @@
 class PoetsController < ApplicationController
   before_action :set_poet, only: %i[show edit update destroy]
 
-  # GET /poets
   def index
     @q = Poet.ransack(params[:q])
     @poets = @q.result(distinct: true).includes(:poems, :comments, :likes,
                                                 :sent_friend_requests, :received_friend_requests, :recipients, :senders, :liked_poems).page(params[:page]).per(10)
   end
 
-  # GET /poets/1
   def show
     @friend_request = FriendRequest.new
     @like = Like.new
@@ -16,15 +14,12 @@ class PoetsController < ApplicationController
     @poem = Poem.new
   end
 
-  # GET /poets/new
   def new
     @poet = Poet.new
   end
 
-  # GET /poets/1/edit
   def edit; end
 
-  # POST /poets
   def create
     @poet = Poet.new(poet_params)
 
@@ -35,7 +30,6 @@ class PoetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /poets/1
   def update
     if @poet.update(poet_params)
       redirect_to @poet, notice: "Poet was successfully updated."
@@ -44,7 +38,6 @@ class PoetsController < ApplicationController
     end
   end
 
-  # DELETE /poets/1
   def destroy
     @poet.destroy
     redirect_to poets_url, notice: "Poet was successfully destroyed."
@@ -52,12 +45,10 @@ class PoetsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_poet
     @poet = Poet.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def poet_params
     params.require(:poet).permit(:email, :password, :name, :bio, :dob, :photo)
   end
