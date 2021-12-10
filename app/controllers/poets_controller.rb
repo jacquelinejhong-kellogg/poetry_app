@@ -3,7 +3,8 @@ class PoetsController < ApplicationController
 
   # GET /poets
   def index
-    @poets = Poet.page(params[:page]).per(10)
+    @q = Poet.ransack(params[:q])
+    @poets = @q.result(:distinct => true).includes(:poems, :comments, :likes, :sent_friend_requests, :received_friend_requests, :recipients, :senders, :liked_poems).page(params[:page]).per(10)
   end
 
   # GET /poets/1
