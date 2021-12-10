@@ -11,6 +11,9 @@ class PoetResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments,
+             foreign_key: :commenter_id
+
   has_many   :poems,
              foreign_key: :author_id
 
