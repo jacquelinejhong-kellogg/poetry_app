@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Poet #<%= poet.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Email</dt>
+      <!-- Display email start -->
+      <dd><%= poet.email %></dd>
+      <!-- Display email end -->
+
+      <dt>Password</dt>
+      <!-- Display password start -->
+      <dd><%= poet.password %></dd>
+      <!-- Display password end -->
+
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= poet.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Bio</dt>
+      <!-- Display bio start -->
+      <dd><%= poet.bio %></dd>
+      <!-- Display bio end -->
+
+      <dt>Dob</dt>
+      <!-- Display dob start -->
+      <dd><%= poet.dob %></dd>
+      <!-- Display dob end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= poet.photo %></dd>
+      <!-- Display photo end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back poet, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link poet start -->
+      <div class="col">
+        <%= link_to edit_poet_url(poet), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link poet end -->
+
+      <!-- Delete link poet start -->
+      <div class="col">
+        <%= link_to poet, method: :delete, data: { confirm: "Do you really want to delete this poet?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link poet end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(poet.updated_at) %> ago
+  </div>
+</div>
