@@ -7,6 +7,9 @@ class FriendRequestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :recipient,
+             resource: PoetResource
+
   belongs_to :sender,
              resource: PoetResource
 
