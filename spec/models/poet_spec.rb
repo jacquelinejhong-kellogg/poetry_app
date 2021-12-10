@@ -4,6 +4,8 @@ RSpec.describe Poet, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:received_friend_requests) }
+
     it { should have_many(:sent_friend_requests) }
 
     it { should have_many(:likes) }

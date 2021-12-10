@@ -1,6 +1,9 @@
 class FriendRequest < ApplicationRecord
   # Direct associations
 
+  belongs_to :recipient,
+             :class_name => "Poet"
+
   belongs_to :sender,
              :class_name => "Poet"
 
