@@ -10,6 +10,9 @@ class PoemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :author,
+             resource: PoetResource
+
   has_many   :likes
 
   has_many   :comments
