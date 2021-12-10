@@ -8,6 +8,10 @@ class PoetsController < ApplicationController
 
   # GET /poets/1
   def show
+    @friend_request = FriendRequest.new
+    @like = Like.new
+    @comment = Comment.new
+    @poem = Poem.new
   end
 
   # GET /poets/new

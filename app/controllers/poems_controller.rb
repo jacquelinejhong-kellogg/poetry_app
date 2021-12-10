@@ -8,6 +8,8 @@ class PoemsController < ApplicationController
 
   # GET /poems/1
   def show
+    @like = Like.new
+    @comment = Comment.new
   end
 
   # GET /poems/new
@@ -24,7 +26,12 @@ class PoemsController < ApplicationController
     @poem = Poem.new(poem_params)
 
     if @poem.save
-      redirect_to @poem, notice: 'Poem was successfully created.'
+      message = 'Poem was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @poem, notice: message
+      end
     else
       render :new
     end

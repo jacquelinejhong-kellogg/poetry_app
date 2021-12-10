@@ -1,0 +1,51 @@
+<!-- Form poem start -->
+<%= form_with(model: @poem, local: true) do |f| %>
+<!-- Form poem end -->
+
+  <!-- Label and input for title start -->
+  <div class="form-group">
+    <%= f.label :title %>
+
+    <!-- Input for title start -->
+    <%= f.text_field :title, class: "form-control" %>
+    <!-- Input for title end -->
+  </div>
+  <!-- Label and input for title end -->
+
+  <!-- Label and input for body start -->
+  <div class="form-group">
+    <%= f.label :body %>
+
+    <!-- Input for body start -->
+    <%= f.text_field :body, class: "form-control" %>
+    <!-- Input for body end -->
+  </div>
+  <!-- Label and input for body end -->
+
+  <!-- Label and input for author_id start -->
+  <!-- Input for author_id start -->
+  <%= f.hidden_field :author_id, value: @poet.id %>
+  <!-- Input for author_id end -->
+  <!-- Label and input for author_id end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <%= f.label :date %>
+    <!-- Input for date start -->
+    <%= f.datetime_select :date, class: "form-control" %>
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for commentary start -->
+  <div class="form-group">
+    <%= f.label :commentary %>
+
+    <!-- Input for commentary start -->
+    <%= f.text_field :commentary, class: "form-control" %>
+    <!-- Input for commentary end -->
+  </div>
+  <!-- Label and input for commentary end -->
+
+  <%= f.submit "Create poem", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
