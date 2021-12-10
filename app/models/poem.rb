@@ -1,6 +1,9 @@
 class Poem < ApplicationRecord
   # Direct associations
 
+  belongs_to :author,
+             :class_name => "Poet"
+
   has_many   :likes,
              :dependent => :destroy
 
